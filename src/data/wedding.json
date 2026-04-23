@@ -1,0 +1,80 @@
+{
+  "bride": {
+    "name": "Ayesha",
+    "father": "Mohammed Rashid",
+    "mother": "Fatima Rashid",
+    "grandfather": "Abdul Kareem",
+    "family": "Rashid Family",
+    "dua": "May Allah bless this union with endless barakah and fill their home with peace and love."
+  },
+  "groom": {
+    "name": "Munaf",
+    "father": "Ahmed Khan",
+    "mother": "Zainab Khan",
+    "grandfather": "Yusuf Khan",
+    "family": "Khan Family",
+    "dua": "We pray that Allah makes this marriage a source of mercy, tranquility, and joy for both families."
+  },
+  "nikah": {
+    "dateGregorian": "Friday, June 12, 2026",
+    "dateHijri": "17 Dhul Qi'dah 1448",
+    "time": "4:30 PM (After Asr Prayer)",
+    "venueName": "Masjid Al-Noor",
+    "venueAddress": "123 Crescent Avenue, Hyderabad, Telangana 500001",
+    "lat": 17.3850,
+    "lng": 78.4867,
+    "qaziName": "Maulana Abdul Hameed",
+    "dressCode": "Traditional & Modest — Sherwani, Kurta for Men | Abaya, Hijab, Anarkali for Women",
+    "note": "The sacred marriage contract ceremony. Please arrive 15 minutes early.",
+    "prayerNote": "Nikah is scheduled between Asr and Maghrib prayers."
+  },
+  "walima": {
+    "dateGregorian": "Saturday, June 13, 2026",
+    "dateHijri": "18 Dhul Qi'dah 1448",
+    "time": "7:00 PM",
+    "venueName": "Royal Banquet Hall",
+    "venueAddress": "456 Pearl Boulevard, Hyderabad, Telangana 500034",
+    "lat": 17.4399,
+    "lng": 78.4983,
+    "dressCode": "Festive & Formal — Suits, Sherwani for Men | Lehenga, Saree, Gown for Women",
+    "note": "The reception feast hosted by the groom's family, following the Sunnah of Prophet Muhammad ﷺ"
+  },
+  "nearestMasjid": "Masjid Al-Noor — 200m from Nikah venue, 1.2km from Walima venue",
+  "hotels": [
+    {
+      "name": "Grand Hyatt Hyderabad",
+      "distance": "2.5 km from venues",
+      "halalDining": true,
+      "nearestMasjid": "5 min walk",
+      "phone": "+91 40 1234 5678"
+    },
+    {
+      "name": "Taj Falaknuma Palace",
+      "distance": "4 km from venues",
+      "halalDining": true,
+      "nearestMasjid": "10 min walk",
+      "phone": "+91 40 8765 4321"
+    }
+  ],
+  "contact": {
+    "brideWhatsApp": "+919876543210",
+    "groomWhatsApp": "+919876543211",
+    "coordinatorWhatsApp": "+919876543212",
+    "coordinatorName": "Brother Imran"
+  },
+  "rsvpEndpoint": "https://formspree.io/f/your-form-id",
+  "settings": {
+    "showBridePhoto": false,
+    "includeMusic": false,
+    "sameVenue": false,
+    "backgroundAudioUrl": null
+  },
+  "faq": [
+    { "question": "Is there a prayer area at the venues?", "answer": "Yes, both venues have designated prayer areas with wudu facilities. Prayer mats will be available." },
+    { "question": "Will there be separate seating for men and women?", "answer": "Yes, separate seating arrangements have been made at both events to maintain Islamic traditions." },
+    { "question": "Is parking available?", "answer": "Yes, both venues offer free parking. Valet parking is available at the Walima venue." },
+    { "question": "Are children welcome?", "answer": "Absolutely! Children are welcome at both events. A kids' area will be set up at the Walima." },
+    { "question": "What's the dress code difference between Nikah and Walima?", "answer": "Nikah: Traditional and modest attire (kurta/sherwani for men, abaya/hijab for women). Walima: Festive formal — you may dress up more while maintaining modesty." },
+    { "question": "Can I attend only one event?", "answer": "Of course! You're welcome to attend either or both. Please indicate your preference in the RSVP." }
+  ]
+}
