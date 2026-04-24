@@ -9,19 +9,19 @@ export default function FAQSection({ data }) {
   return (
     <section className="section-padding">
       <AnimatedSection>
-        <h2 className="font-display text-3xl gold-text text-center mb-2">FAQ</h2>
-        <p className="text-ivory/40 text-center text-sm mb-10">Common questions answered</p>
+        <h2 className="font-display text-3xl md:text-4xl gold-text text-center mb-4">FAQ</h2>
+        <p className="text-white/40 text-center text-sm mb-14 leading-relaxed">Common questions answered</p>
       </AnimatedSection>
 
-      <div className="max-w-3xl mx-auto space-y-4 px-4">
+      <div className="max-w-3xl mx-auto space-y-5 px-6">
         {data.faq.map((item, i) => (
           <AnimatedSection key={i} delay={i * 0.05}>
             <div className="glass-card overflow-hidden transition-colors hover:border-gold/20">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left cursor-pointer hover:bg-white/[0.02] transition-colors"
+                className="w-full px-7 py-6 flex items-center justify-between text-left cursor-pointer hover:bg-white/[0.02] transition-colors"
               >
-                <span className="text-ivory/90 text-base pr-4 font-medium">{item.question}</span>
+                <span className="text-white/90 text-base pr-6 font-medium leading-relaxed">{item.question}</span>
                 <motion.div animate={{ rotate: openIndex === i ? 180 : 0 }} transition={{ duration: 0.3 }}>
                   <ChevronDown size={16} className="text-gold/50 shrink-0" />
                 </motion.div>
@@ -35,8 +35,8 @@ export default function FAQSection({ data }) {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-5 pb-4 border-t border-gold/10 pt-3">
-                      <p className="text-ivory/50 text-sm leading-relaxed">{item.answer}</p>
+                    <div className="px-7 pb-6 border-t border-gold/10 pt-5">
+                      <p className="text-white/50 text-sm leading-[1.8]">{item.answer}</p>
                     </div>
                   </motion.div>
                 )}

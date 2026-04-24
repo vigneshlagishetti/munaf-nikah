@@ -1,80 +1,101 @@
 {
   "bride": {
-    "name": "Ayesha",
-    "father": "Mohammed Rashid",
-    "mother": "Fatima Rashid",
-    "grandfather": "Abdul Kareem",
-    "family": "Rashid Family",
+    "name": "M. Roohiya Muffasareen",
+    "father": "M. Ejaz-Ul-Haq",
+    "mother": "Mrs. M. Ejaz-Ul-Haq",
+    "family": "Ejaz-Ul-Haq Family",
     "dua": "May Allah bless this union with endless barakah and fill their home with peace and love."
   },
   "groom": {
-    "name": "Munaf",
-    "father": "Ahmed Khan",
-    "mother": "Zainab Khan",
-    "grandfather": "Yusuf Khan",
-    "family": "Khan Family",
+    "name": "S. Abdul Munaaf",
+    "father": "S. Shaiksha Vali",
+    "mother": "Mrs. S. Shaiksha Vali",
+    "family": "Shaiksha Vali Family",
     "dua": "We pray that Allah makes this marriage a source of mercy, tranquility, and joy for both families."
   },
   "nikah": {
-    "dateGregorian": "Friday, June 12, 2026",
-    "dateHijri": "17 Dhul Qi'dah 1448",
+    "dateGregorian": "Saturday, June 7, 2025",
+    "dateHijri": "10 Dhul Hijjah 1446",
     "time": "4:30 PM (After Asr Prayer)",
-    "venueName": "Masjid Al-Noor",
-    "venueAddress": "123 Crescent Avenue, Hyderabad, Telangana 500001",
-    "lat": 17.3850,
-    "lng": 78.4867,
-    "qaziName": "Maulana Abdul Hameed",
+    "venueName": "Railway Institute",
+    "venueAddress": "Prabhath Nagar, V.V Nagar, Guntakal, Andhra Pradesh 515801",
+    "lat": 15.1711,
+    "lng": 77.3778,
     "dressCode": "Traditional & Modest — Sherwani, Kurta for Men | Abaya, Hijab, Anarkali for Women",
     "note": "The sacred marriage contract ceremony. Please arrive 15 minutes early.",
     "prayerNote": "Nikah is scheduled between Asr and Maghrib prayers."
   },
   "walima": {
-    "dateGregorian": "Saturday, June 13, 2026",
-    "dateHijri": "18 Dhul Qi'dah 1448",
+    "dateGregorian": "Sunday, June 8, 2025",
+    "dateHijri": "11 Dhul Hijjah 1446",
     "time": "7:00 PM",
-    "venueName": "Royal Banquet Hall",
-    "venueAddress": "456 Pearl Boulevard, Hyderabad, Telangana 500034",
-    "lat": 17.4399,
-    "lng": 78.4983,
+    "venueName": "Railway Institute",
+    "venueAddress": "Prabhath Nagar, V.V Nagar, Guntakal, Andhra Pradesh 515801",
+    "lat": 15.1711,
+    "lng": 77.3778,
     "dressCode": "Festive & Formal — Suits, Sherwani for Men | Lehenga, Saree, Gown for Women",
     "note": "The reception feast hosted by the groom's family, following the Sunnah of Prophet Muhammad ﷺ"
   },
-  "nearestMasjid": "Masjid Al-Noor — 200m from Nikah venue, 1.2km from Walima venue",
+  "nearestMasjid": "Guntakal Railway Colony Masjid — near the venue",
   "hotels": [
     {
-      "name": "Grand Hyatt Hyderabad",
-      "distance": "2.5 km from venues",
+      "name": "Hotel Vijai",
+      "distance": "2 km from venue",
       "halalDining": true,
       "nearestMasjid": "5 min walk",
-      "phone": "+91 40 1234 5678"
+      "phone": "+91 8559 222 333"
     },
     {
-      "name": "Taj Falaknuma Palace",
-      "distance": "4 km from venues",
+      "name": "Hotel Aditya Residency",
+      "distance": "3 km from venue",
       "halalDining": true,
       "nearestMasjid": "10 min walk",
-      "phone": "+91 40 8765 4321"
+      "phone": "+91 8559 244 555"
     }
   ],
   "contact": {
-    "brideWhatsApp": "+919876543210",
-    "groomWhatsApp": "+919876543211",
-    "coordinatorWhatsApp": "+919876543212",
-    "coordinatorName": "Brother Imran"
+    "groomWhatsApp": "+919391718782"
   },
   "rsvpEndpoint": "https://formspree.io/f/your-form-id",
   "settings": {
     "showBridePhoto": false,
     "includeMusic": false,
-    "sameVenue": false,
+    "sameVenue": true,
     "backgroundAudioUrl": null
   },
+  "images": {
+    "heroBg": "/images/hero-bg.png",
+    "weddingDecor": "/images/wedding-decor.png",
+    "venueMosque": "/images/venue-mosque.png"
+  },
   "faq": [
-    { "question": "Is there a prayer area at the venues?", "answer": "Yes, both venues have designated prayer areas with wudu facilities. Prayer mats will be available." },
-    { "question": "Will there be separate seating for men and women?", "answer": "Yes, separate seating arrangements have been made at both events to maintain Islamic traditions." },
-    { "question": "Is parking available?", "answer": "Yes, both venues offer free parking. Valet parking is available at the Walima venue." },
-    { "question": "Are children welcome?", "answer": "Absolutely! Children are welcome at both events. A kids' area will be set up at the Walima." },
-    { "question": "What's the dress code difference between Nikah and Walima?", "answer": "Nikah: Traditional and modest attire (kurta/sherwani for men, abaya/hijab for women). Walima: Festive formal — you may dress up more while maintaining modesty." },
-    { "question": "Can I attend only one event?", "answer": "Of course! You're welcome to attend either or both. Please indicate your preference in the RSVP." }
+    {
+      "question": "Is there a prayer area at the venue?",
+      "answer": "Yes, the Railway Institute has a designated prayer area. Nearby masjids are also accessible within walking distance."
+    },
+    {
+      "question": "Will there be separate seating for men and women?",
+      "answer": "Yes, separate seating arrangements have been made at both events to maintain Islamic traditions."
+    },
+    {
+      "question": "Is parking available?",
+      "answer": "Yes, the Railway Institute offers ample free parking space for all guests."
+    },
+    {
+      "question": "Are children welcome?",
+      "answer": "Absolutely! Children are welcome at both events. A kids' area will be set up at the Walima."
+    },
+    {
+      "question": "What's the dress code difference between Nikah and Walima?",
+      "answer": "Nikah: Traditional and modest attire (kurta/sherwani for men, abaya/hijab for women). Walima: Festive formal — you may dress up more while maintaining modesty."
+    },
+    {
+      "question": "Can I attend only one event?",
+      "answer": "Of course! You're welcome to attend either or both. Please indicate your preference in the RSVP."
+    },
+    {
+      "question": "How do I reach Guntakal?",
+      "answer": "Guntakal is a major railway junction in Andhra Pradesh. It is well connected by train from Hyderabad, Bangalore, and Chennai. The Railway Institute is located near the railway station."
+    }
   ]
 }

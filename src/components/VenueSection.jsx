@@ -18,46 +18,57 @@ export default function VenueSection({ data }) {
   const VenueBlock = ({ label, venue, accent }) => (
     <div className="glass-card interactive-card overflow-hidden h-full flex flex-col">
       <div className={`h-1 ${accent}`} />
-      <div className="p-6 md:p-8 flex-1 flex flex-col">
-        <p className="text-gold/50 text-xs tracking-[0.2em] uppercase mb-2">{label}</p>
-        <h3 className="font-display text-xl text-ivory mb-1">{venue.venueName}</h3>
-        <p className="text-ivory/50 text-sm mb-4">{venue.venueAddress}</p>
+      <div className="p-7 md:p-8 flex-1 flex flex-col text-center">
+        <p className="text-gold/50 text-xs tracking-[0.25em] uppercase mb-4">{label}</p>
+        <h3 className="font-display text-2xl text-white mb-2">{venue.venueName}</h3>
+        <p className="text-white/50 text-sm mb-8 leading-relaxed max-w-sm mx-auto">{venue.venueAddress}</p>
 
-        {/* Map embed placeholder */}
-        <div className="w-full h-40 rounded-xl mb-4 overflow-hidden bg-charcoal-mid border border-gold/10 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin size={24} className="text-gold/30 mx-auto mb-2" />
-            <p className="text-ivory/30 text-xs">Interactive map</p>
-            <a href={`https://www.google.com/maps?q=${venue.lat},${venue.lng}`}
-              target="_blank" rel="noopener noreferrer" className="text-gold/50 text-xs underline">
-              Open in Google Maps
+        {/* Venue Image / Map */}
+        <div className="w-full h-48 rounded-xl mb-8 overflow-hidden border border-gold/10">
+          {data.images?.venueMosque ? (
+            <a href={`https://www.google.com/maps?q=${venue.lat},${venue.lng}`} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+              <img src={data.images.venueMosque} alt={venue.venueName} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </a>
-          </div>
+          ) : (
+            <div className="w-full h-full bg-charcoal-mid flex items-center justify-center">
+              <div className="text-center space-y-3">
+                <MapPin size={28} className="text-gold/30 mx-auto" />
+                <p className="text-white/30 text-sm">Interactive Map</p>
+                <a href={`https://www.google.com/maps?q=${venue.lat},${venue.lng}`}
+                  target="_blank" rel="noopener noreferrer" className="text-gold/50 text-xs underline hover:text-gold transition-colors">
+                  Open in Google Maps
+                </a>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Action buttons */}
-        <div className="flex flex-col gap-3 mt-auto">
+        <div className="flex flex-col gap-3 mt-auto max-w-xs mx-auto w-full">
           <GoldButton href={`https://www.google.com/maps/dir/?api=1&destination=${venue.lat},${venue.lng}`}
             variant="outline" className="w-full text-xs md:text-sm">
-            <Navigation size={14} /> Google Maps Directions
+            <Navigation size={14} /> Get Directions
           </GoldButton>
-          <GoldButton href={`http://maps.apple.com/?daddr=${venue.lat},${venue.lng}`}
-            variant="ghost" className="w-full text-xs md:text-sm">
-            <Navigation size={14} /> Apple Maps
-          </GoldButton>
-          <GoldButton onClick={() => handleCopy(venue.venueAddress)} variant="ghost" className="w-full text-xs md:text-sm">
-            <Copy size={14} /> Copy Address
-          </GoldButton>
+          <div className="flex gap-3 justify-center">
+            <GoldButton href={`http://maps.apple.com/?daddr=${venue.lat},${venue.lng}`}
+              variant="ghost" className="text-xs md:text-sm">
+              <Navigation size={14} /> Apple Maps
+            </GoldButton>
+            <GoldButton onClick={() => handleCopy(venue.venueAddress)} variant="ghost" className="text-xs md:text-sm">
+              <Copy size={14} /> Copy
+            </GoldButton>
+          </div>
         </div>
 
         {data.nearestMasjid && (
-          <div className="mt-6 pt-5 border-t border-gold/10">
-            <p className="text-ivory/40 text-xs md:text-sm flex items-center gap-2">
-              <ParkingCircle size={14} className="text-gold/40" />
-              Free parking available
+          <div className="mt-8 pt-6 border-t border-gold/10 space-y-4 text-center">
+            <p className="text-white/40 text-sm">
+              <ParkingCircle size={14} className="text-gold/40 inline-block mr-2 align-middle" />
+              <span className="align-middle">Free parking available</span>
             </p>
-            <p className="text-ivory/40 text-xs md:text-sm mt-2">
-              🕌 {data.nearestMasjid}
+            <p className="text-white/40 text-sm leading-relaxed">
+              <span className="mr-2">🕌</span>
+              {data.nearestMasjid}
             </p>
           </div>
         )}
@@ -68,11 +79,11 @@ export default function VenueSection({ data }) {
   return (
     <section className="section-padding islamic-pattern-dense">
       <AnimatedSection>
-        <h2 className="font-display text-3xl gold-text text-center mb-2">Venue & Location</h2>
-        <p className="text-ivory/40 text-center text-sm mb-10">Find your way to the celebration</p>
+        <h2 className="font-display text-3xl md:text-4xl gold-text text-center mb-4">Venue & Location</h2>
+        <p className="text-white/40 text-center text-sm mb-14 leading-relaxed">Find your way to the celebration</p>
       </AnimatedSection>
 
-      <div className="flex flex-col md:flex-row gap-8 max-w-4xl mx-auto px-4 justify-center">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-10 max-w-4xl mx-auto px-6 justify-center">
         {data.settings.sameVenue ? (
           <AnimatedSection delay={0.1} className="w-full md:w-2/3">
             <VenueBlock label="Nikah & Walima Venue" venue={data.nikah} accent="bg-gradient-to-r from-gold-dark via-gold to-gold-dark" />
@@ -91,7 +102,7 @@ export default function VenueSection({ data }) {
 
       {/* Toast */}
       {toast && (
-        <div className="toast glass-card-gold px-4 py-2 text-gold text-sm">{toast}</div>
+        <div className="toast glass-card-gold px-5 py-2.5 text-gold text-sm">{toast}</div>
       )}
     </section>
   );
