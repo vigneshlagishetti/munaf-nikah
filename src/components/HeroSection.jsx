@@ -91,8 +91,8 @@ export default function HeroSection({ data }) {
 
       {/* Date Card */}
       <AnimatedSection delay={0.5}>
-        <div className="glass-card px-8 py-5 md:px-12 md:py-7 mb-14 mx-6">
-          <p className="font-display text-white text-lg md:text-xl tracking-widest uppercase">
+        <div className="px-8 py-5 md:px-12 md:py-7 mb-14 mx-6">
+          <p className="font-display text-white/90 text-lg md:text-xl tracking-widest uppercase">
             {data.nikah.dateGregorian}
           </p>
           <p className="hijri-text text-gold text-base md:text-lg mt-2 font-light">

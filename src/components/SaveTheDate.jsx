@@ -27,26 +27,42 @@ export default function SaveTheDate({ data }) {
   };
 
   const CountdownUnit = ({ value, label }) => (
-    <div className="countdown-digit flex flex-col items-center px-4 py-4 min-w-[72px] md:min-w-[90px]">
-      <motion.span key={value} initial={{ y: -10, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
-        className="font-display text-3xl md:text-5xl text-gold font-light drop-shadow-md">
+    <motion.div
+      className="countdown-box"
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.span
+        key={value}
+        initial={{ y: -16, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+        className="countdown-box-number"
+      >
         {String(value).padStart(2, '0')}
       </motion.span>
-      <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase mt-2">{label}</span>
-    </div>
+      <span className="countdown-box-label">{label}</span>
+    </motion.div>
   );
 
   return (
-    <section className="section-padding text-center">
+    <section className="save-the-date-section islamic-pattern-dense relative overflow-hidden">
+      {/* Corner diamond ornaments */}
+      <div className="std-corner std-corner--tl" />
+      <div className="std-corner std-corner--tr" />
+      <div className="std-corner std-corner--bl" />
+      <div className="std-corner std-corner--br" />
+
       <AnimatedSection>
-        <p className="text-gold/50 text-xs tracking-[0.3em] uppercase mb-4">Save the Date</p>
-        <h2 className="font-display text-3xl md:text-4xl gold-text mb-3">{data.nikah.dateGregorian}</h2>
-        <p className="hijri-text text-gold/50 text-lg mb-14">{data.nikah.dateHijri}</p>
+        <p className="std-subtitle">Save the Date</p>
+        <h2 className="std-date gold-text">{data.nikah.dateGregorian}</h2>
+        <p className="std-hijri hijri-text">{data.nikah.dateHijri}</p>
       </AnimatedSection>
 
       <AnimatedSection delay={0.15}>
         {!nikahCountdown.isPast ? (
-          <div className="flex justify-center gap-2 md:gap-4 mb-14">
+          <div className="countdown-row">
             <CountdownUnit value={nikahCountdown.days} label="Days" />
             <CountdownUnit value={nikahCountdown.hours} label="Hours" />
             <CountdownUnit value={nikahCountdown.minutes} label="Min" />

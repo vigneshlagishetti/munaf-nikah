@@ -227,12 +227,168 @@ body {
 }
 .flip-card-back { transform: rotateY(180deg); }
 
-/* ===== Countdown ===== */
-.countdown-digit {
-  background: linear-gradient(180deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.03) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+/* ===== Save the Date Section ===== */
+.save-the-date-section {
+  padding: 5rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .save-the-date-section {
+    padding: 7rem 2.5rem;
+  }
+}
+
+.std-subtitle {
+  color: rgba(212, 175, 55, 0.55);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+}
+
+.std-date {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .std-date {
+    font-size: 2.8rem;
+  }
+}
+
+.std-hijri {
+  color: rgba(212, 175, 55, 0.45);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== Countdown Row ===== */
+.countdown-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+@media (min-width: 768px) {
+  .countdown-row {
+    gap: 1.25rem;
+  }
+}
+
+/* ===== Countdown Box ===== */
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  min-height: 88px;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(
+    170deg,
+    rgba(212, 175, 55, 0.10) 0%,
+    rgba(30, 25, 10, 0.80) 40%,
+    rgba(212, 175, 55, 0.05) 100%
+  );
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(212,175,55,0.1);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(212, 175, 55, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .countdown-box {
+    min-width: 110px;
+    min-height: 120px;
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+  }
+}
+
+/* Subtle inner shimmer */
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(212, 175, 55, 0.06) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.countdown-box-number {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #D4AF37;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(212, 175, 55, 0.15);
+}
+@media (min-width: 768px) {
+  .countdown-box-number {
+    font-size: 3.2rem;
+  }
+}
+
+.countdown-box-label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.40);
+  margin-top: 0.5rem;
+}
+@media (min-width: 768px) {
+  .countdown-box-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* ===== Corner Diamond Ornaments ===== */
+.std-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: rgba(212, 175, 55, 0.15);
+  pointer-events: none;
+}
+.std-corner--tl {
+  top: 1.5rem;
+  left: 1.5rem;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.std-corner--tr {
+  top: 1.5rem;
+  right: 1.5rem;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+.std-corner--bl {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+.std-corner--br {
+  bottom: 1.5rem;
+  right: 1.5rem;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
 }
 
 /* ===== Ambient Section Glows ===== */

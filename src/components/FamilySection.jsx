@@ -20,22 +20,26 @@ export default function FamilySection({ data }) {
           <div
             className="flip-card cursor-pointer w-full md:w-auto transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98]"
             onClick={() => setGroomFlipped(!groomFlipped)}
-            style={{ minHeight: '320px' }}
+            style={{ minHeight: '400px' }}
           >
-            <div className={`flip-card-inner relative w-full h-full ${groomFlipped ? 'flipped' : ''}`} style={{ minHeight: '320px' }}>
+            <div className={`flip-card-inner relative w-full h-full ${groomFlipped ? 'flipped' : ''}`} style={{ minHeight: '400px' }}>
               {/* Front */}
               <div className="flip-card-front absolute inset-0 glass-card-gold p-8 ornate-corners">
                 <div className="text-center">
-                  <p className="text-gold/50 text-xs tracking-[0.25em] uppercase mb-5">Groom's Family</p>
+                  <p className="text-gold/50 text-xs tracking-[0.25em] uppercase mb-4">Groom's Family</p>
+                  {/* Family Art */}
+                  <div className="w-20 h-20 mx-auto mb-5 rounded-full overflow-hidden border border-gold/25 shadow-lg">
+                    <img src="/images/groom-family.png" alt="Groom Family" className="w-full h-full object-cover" />
+                  </div>
                   <h3 className="font-display text-2xl text-white mb-2">{data.groom.name}</h3>
-                  <p className="text-white/50 text-sm font-body mb-6 leading-relaxed">
+                  <p className="text-white/50 text-sm font-body mb-5 leading-relaxed">
                     S/O Mr & Mrs {data.groom.father}
                   </p>
-                  <div className="gold-shimmer-line w-16 mx-auto mb-6" />
+                  <div className="gold-shimmer-line w-16 mx-auto mb-5" />
                   <p className="font-display text-white/60 text-sm italic leading-[1.8]">
                     "{data.groom.dua}"
                   </p>
-                  <p className="text-gold/30 text-xs mt-6">Tap for details</p>
+                  <p className="text-gold/30 text-xs mt-5">Tap for details</p>
                 </div>
               </div>
 
@@ -64,22 +68,26 @@ export default function FamilySection({ data }) {
           <div
             className="flip-card cursor-pointer w-full md:w-auto transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98]"
             onClick={() => setBrideFlipped(!brideFlipped)}
-            style={{ minHeight: '320px' }}
+            style={{ minHeight: '400px' }}
           >
-            <div className={`flip-card-inner relative w-full h-full ${brideFlipped ? 'flipped' : ''}`} style={{ minHeight: '320px' }}>
+            <div className={`flip-card-inner relative w-full h-full ${brideFlipped ? 'flipped' : ''}`} style={{ minHeight: '400px' }}>
               {/* Front */}
               <div className="flip-card-front absolute inset-0 glass-card-gold p-8 ornate-corners">
                 <div className="text-center">
-                  <p className="text-gold/50 text-xs tracking-[0.25em] uppercase mb-5">Bride's Family</p>
+                  <p className="text-gold/50 text-xs tracking-[0.25em] uppercase mb-4">Bride's Family</p>
+                  {/* Family Art */}
+                  <div className="w-20 h-20 mx-auto mb-5 rounded-full overflow-hidden border border-gold/25 shadow-lg">
+                    <img src="/images/bride-family.png" alt="Bride Family" className="w-full h-full object-cover" />
+                  </div>
                   <h3 className="font-display text-2xl text-white mb-2">{data.bride.name}</h3>
-                  <p className="text-white/50 text-sm font-body mb-6 leading-relaxed">
-                    D/O Mrs & Mr {data.bride.father}
+                  <p className="text-white/50 text-sm font-body mb-5 leading-relaxed">
+                    D/O Mr & Mrs {data.bride.father}
                   </p>
-                  <div className="gold-shimmer-line w-16 mx-auto mb-6" />
+                  <div className="gold-shimmer-line w-16 mx-auto mb-5" />
                   <p className="font-display text-white/60 text-sm italic leading-[1.8]">
                     "{data.bride.dua}"
                   </p>
-                  <p className="text-gold/30 text-xs mt-6">Tap for details</p>
+                  <p className="text-gold/30 text-xs mt-5">Tap for details</p>
                 </div>
               </div>
 
