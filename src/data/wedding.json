@@ -21,7 +21,6 @@
     "venueAddress": "Prabhath Nagar, V.V Nagar, Guntakal, Andhra Pradesh 515801",
     "lat": 15.1711,
     "lng": 77.3778,
-    "dressCode": "Traditional & Modest — Sherwani, Kurta for Men | Abaya, Hijab, Anarkali for Women",
     "note": "The sacred marriage contract ceremony. Please arrive 15 minutes early.",
     "prayerNote": "Nikah is scheduled between Asr and Maghrib prayers."
   },
@@ -33,7 +32,6 @@
     "venueAddress": "Prabhath Nagar, V.V Nagar, Guntakal, Andhra Pradesh 515801",
     "lat": 15.1711,
     "lng": 77.3778,
-    "dressCode": "Festive & Formal — Suits, Sherwani for Men | Lehenga, Saree, Gown for Women",
     "note": "The reception feast hosted by the groom's family, following the Sunnah of Prophet Muhammad ﷺ"
   },
   "nearestMasjid": "Guntakal Railway Colony Masjid — near the venue",
@@ -68,10 +66,6 @@
     {
       "question": "Are children welcome?",
       "answer": "Absolutely! Children are welcome at both events. A kids' area will be set up at the Walima."
-    },
-    {
-      "question": "What's the dress code difference between Nikah and Walima?",
-      "answer": "Nikah: Traditional and modest attire (kurta/sherwani for men, abaya/hijab for women). Walima: Festive formal — you may dress up more while maintaining modesty."
     },
     {
       "question": "Can I attend only one event?",

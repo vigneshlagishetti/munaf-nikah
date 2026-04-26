@@ -7,8 +7,6 @@ import FamilySection from './components/FamilySection';
 import SaveTheDate from './components/SaveTheDate';
 import EventsSection from './components/EventsSection';
 import VenueSection from './components/VenueSection';
-
-import DressCode from './components/DressCode';
 import RSVPForm from './components/RSVPForm';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
@@ -67,7 +65,7 @@ export default function App() {
   return (
     <>
       {/* Dynamic Interactive Background Glow */}
-      <div 
+      <div
         className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-1000"
         style={{
           opacity: cardOpened ? 1 : 0,
@@ -76,8 +74,8 @@ export default function App() {
         }}
       />
       {/* Global drifting pattern background - Increased opacity for visibility */}
-      <div 
-        className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-1000 islamic-pattern-bg ${cardOpened ? 'opacity-100' : 'opacity-0'}`} 
+      <div
+        className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-1000 islamic-pattern-bg ${cardOpened ? 'opacity-100' : 'opacity-0'}`}
       />
 
       {cardOpened && <FloatingParticles />}
@@ -90,7 +88,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Main Invitation — always rendered, but fades in when card opens */}
-      <div 
+      <div
         className={`w-full min-h-screen relative z-10 shadow-2xl shadow-gold/5 bg-transparent transition-opacity duration-1000 ${cardOpened ? 'opacity-100' : 'opacity-0 pointer-events-none h-screen overflow-hidden'}`}
       >
         <HeroSection data={data} />
@@ -110,8 +108,6 @@ export default function App() {
         <EventsSection data={data} />
         <SectionDivider />
         <VenueSection data={data} />
-        <SectionDivider />
-        <DressCode data={data} />
         <SectionDivider />
         <RSVPForm data={data} />
         <SectionDivider />

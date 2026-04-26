@@ -36,6 +36,7 @@ export default function FamilySection({ data }) {
                   <div className="gold-shimmer-line w-16 mx-auto mb-5" />
                   <p className="font-display text-white/85 text-sm italic leading-[1.8]">
                     "{data.groom.dua}"
+                  </p>
                 </div>
               </div>
 
@@ -51,6 +52,7 @@ export default function FamilySection({ data }) {
                   <div className="gold-shimmer-line w-12 mx-auto my-6" />
                   <p className="text-white/70 text-xs leading-relaxed">
                     May Allah bless this family and increase their love and unity.
+                  </p>
                 </div>
               </div>
             </div>
@@ -90,6 +92,7 @@ export default function FamilySection({ data }) {
                   <div className="gold-shimmer-line w-16 mx-auto mb-5" />
                   <p className="font-display text-white/85 text-sm italic leading-[1.8]">
                     "{data.bride.dua}"
+                  </p>
                 </div>
               </div>
 
@@ -105,6 +108,7 @@ export default function FamilySection({ data }) {
                   <div className="gold-shimmer-line w-12 mx-auto my-6" />
                   <p className="text-white/70 text-xs leading-relaxed">
                     May Allah unite both families in love, respect, and faith.
+                  </p>
                 </div>
               </div>
             </div>
