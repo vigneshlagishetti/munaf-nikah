@@ -97,7 +97,7 @@ export default function App() {
         {/* Compact star divider */}
         <div className="flex items-center justify-center py-2 md:py-3 px-4 w-full">
           <div className="gold-shimmer-line flex-1 max-w-[120px]" />
-          <svg width="36" height="36" viewBox="0 0 40 40" className="mx-5 opacity-30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="36" height="36" viewBox="0 0 40 40" className="mx-5 opacity-30 animate-spin-slow origin-center" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="20,0 24,14 40,14 27,22 31,38 20,28 9,38 13,22 0,14 16,14" fill="#D4AF37" />
             <circle cx="20" cy="20" r="6" fill="#0A0A0A" stroke="#D4AF37" strokeWidth="0.5" />
           </svg>

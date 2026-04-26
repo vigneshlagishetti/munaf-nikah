@@ -31,8 +31,8 @@ export default function Footer({ data }) {
       {/* Monogram */}
       <AnimatedSection>
         <div className="mb-10">
-          <p className="font-script text-5xl gold-text">
-            {data.groom.name.charAt(0)} & {data.bride.name.charAt(0)}
+          <p className="font-script text-5xl gold-text py-2 leading-normal">
+            M & R
           </p>
         </div>
       </AnimatedSection>
@@ -66,7 +66,7 @@ export default function Footer({ data }) {
 
       {/* Credits */}
       <p className="text-white/40 text-[10px] tracking-wide">
-        Made with 🤍 and du'a
+
       </p>
       <p className="text-white/30 text-[10px] tracking-wide mt-2">
         Developed by Lagishetti Vignesh

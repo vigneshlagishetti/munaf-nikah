@@ -21,7 +21,7 @@ export default function EventsSection({ data }) {
             <div className="h-1 bg-gradient-to-r from-emerald-dark via-emerald to-emerald-dark" />
             <div className="p-7 md:p-8 text-center">
               {/* Header */}
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="mx-auto mb-4">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="mx-auto mb-4 animate-spin-slow origin-center">
                 <polygon points="16,0 20,11 32,11 22,18 26,30 16,22 6,30 10,18 0,11 12,11" fill="#046307" opacity="0.8" />
                 <circle cx="16" cy="16" r="5" fill="#0A0A0A" stroke="#046307" strokeWidth="1" />
               </svg>
@@ -79,7 +79,7 @@ export default function EventsSection({ data }) {
             <div className="h-1 bg-gradient-to-r from-rose-gold/60 via-rose-gold to-rose-gold/60" />
             <div className="p-7 md:p-8 text-center">
               {/* Header */}
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="mx-auto mb-4">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="mx-auto mb-4 animate-spin-slow origin-center">
                 <path d="M16 4C10 4 4 10 4 16s2 8 12 12c10-4 12-6 12-12S22 4 16 4z" fill="none" stroke="#B76E79" strokeWidth="1.5" opacity="0.8" />
                 <circle cx="16" cy="16" r="4" fill="#B76E79" opacity="0.3" />
               </svg>

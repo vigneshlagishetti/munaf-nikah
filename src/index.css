@@ -136,6 +136,20 @@ body {
   animation: patternDriftDense 40s linear infinite;
 }
 
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+  transform-origin: center;
+}
+
 /* ===== Glassmorphism Cards ===== */
 .glass-card {
   background: rgba(13, 15, 13, 0.65);

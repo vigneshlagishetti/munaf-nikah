@@ -6,7 +6,7 @@ export default function SectionDivider() {
         width="48"
         height="48"
         viewBox="0 0 40 40"
-        className="mx-6 opacity-30"
+        className="mx-6 opacity-30 animate-spin-slow origin-center"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
