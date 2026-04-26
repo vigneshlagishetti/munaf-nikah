@@ -68,6 +68,9 @@ export default function Footer({ data }) {
       <p className="text-white/40 text-[10px] tracking-wide">
         Made with 🤍 and du'a
       </p>
+      <p className="text-white/30 text-[10px] tracking-wide mt-2">
+        Developed by Lagishetti Vignesh
+      </p>
     </footer>
   );
 }
