@@ -7,7 +7,7 @@ import FamilySection from './components/FamilySection';
 import SaveTheDate from './components/SaveTheDate';
 import EventsSection from './components/EventsSection';
 import VenueSection from './components/VenueSection';
-import AccommodationSection from './components/AccommodationSection';
+
 import DressCode from './components/DressCode';
 import RSVPForm from './components/RSVPForm';
 import FAQSection from './components/FAQSection';
@@ -110,8 +110,6 @@ export default function App() {
         <EventsSection data={data} />
         <SectionDivider />
         <VenueSection data={data} />
-        <SectionDivider />
-        <AccommodationSection data={data} />
         <SectionDivider />
         <DressCode data={data} />
         <SectionDivider />
