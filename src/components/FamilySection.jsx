@@ -20,9 +20,8 @@ export default function FamilySection({ data }) {
           <div
             className="flip-card cursor-pointer w-full md:w-auto transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98]"
             onClick={() => setGroomFlipped(!groomFlipped)}
-            style={{ minHeight: '320px' }}
           >
-            <div className={`flip-card-inner relative w-full h-full ${groomFlipped ? 'flipped' : ''}`} style={{ minHeight: '320px' }}>
+            <div className={`flip-card-inner relative w-full h-full ${groomFlipped ? 'flipped' : ''}`} style={{ minHeight: '280px' }}>
               {/* Front */}
               <div className="flip-card-front absolute inset-0 glass-card-gold p-8 ornate-corners">
                 <div className="text-center">
@@ -63,27 +62,24 @@ export default function FamilySection({ data }) {
         </AnimatedSection>
 
         {/* Couple Hands Image — perfectly centered with equal spacing */}
-        <AnimatedSection delay={0.15}>
-          <div className="flex flex-col items-center justify-center py-3">
-            <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-gold/40 shadow-[0_0_30px_rgba(212,175,55,0.25)]">
-              <img
-                src="/images/couple-hands.png"
-                alt="Bride and Groom Hands"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <p className="font-display text-gold/60 text-lg mt-1">&</p>
+        <div className="flex flex-col items-center justify-center -my-4 relative z-10">
+          <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-gold/40 shadow-[0_0_30px_rgba(212,175,55,0.25)]">
+            <img
+              src="/images/couple-hands.png"
+              alt="Bride and Groom Hands"
+              className="w-full h-full object-cover"
+            />
           </div>
-        </AnimatedSection>
+          <p className="font-display text-gold/60 text-lg mt-1">&</p>
+        </div>
 
         {/* Bride's Family */}
         <AnimatedSection delay={0.25}>
           <div
             className="flip-card cursor-pointer w-full md:w-auto transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98]"
             onClick={() => setBrideFlipped(!brideFlipped)}
-            style={{ minHeight: '320px' }}
           >
-            <div className={`flip-card-inner relative w-full h-full ${brideFlipped ? 'flipped' : ''}`} style={{ minHeight: '320px' }}>
+            <div className={`flip-card-inner relative w-full h-full ${brideFlipped ? 'flipped' : ''}`} style={{ minHeight: '280px' }}>
               {/* Front */}
               <div className="flip-card-front absolute inset-0 glass-card-gold p-8 ornate-corners">
                 <div className="text-center">
