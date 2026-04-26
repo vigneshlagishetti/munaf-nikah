@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /* ── Ornate Corner Flourish (SVG) ────────────────────────── */
@@ -22,7 +22,6 @@ const CornerFlourish = ({ className = '', style = {} }) => (
       d="M10 118 C10 100 14 70 32 52 C44 40 56 36 68 34"
       stroke="url(#cg)" strokeWidth="0.6" opacity="0.4"
     />
-    {/* Small leaf/petal shapes */}
     <ellipse cx="22" cy="38" rx="4" ry="8" transform="rotate(-40 22 38)" fill="url(#cg)" opacity="0.25" />
     <ellipse cx="46" cy="24" rx="3" ry="7" transform="rotate(-20 46 24)" fill="url(#cg)" opacity="0.2" />
     <circle cx="60" cy="18" r="2.5" fill="url(#cg)" opacity="0.35" />
@@ -60,27 +59,18 @@ const CrescentOrnament = () => (
 /* ── Door Panel Arabesque Pattern ────────────────────────── */
 const DoorArabesque = () => (
   <svg viewBox="0 0 160 460" className="absolute inset-0 w-full h-full" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Outer ornate border */}
     <rect x="6" y="6" width="148" height="448" rx="4" stroke="#D4AF37" strokeWidth="0.6" opacity="0.3" />
     <rect x="12" y="12" width="136" height="436" rx="3" stroke="#D4AF37" strokeWidth="0.4" opacity="0.2" />
-    
-    {/* Top arch */}
     <path d="M30 20 Q80 -5 130 20" stroke="#D4AF37" strokeWidth="0.5" opacity="0.25" fill="none"/>
     <path d="M35 28 Q80 5 125 28" stroke="#D4AF37" strokeWidth="0.4" opacity="0.2" fill="none"/>
-    
-    {/* Central diamond lattice */}
     <path d="M80 60 L120 150 L80 240 L40 150 Z" stroke="#D4AF37" strokeWidth="0.5" opacity="0.15" />
     <path d="M80 90 L105 150 L80 210 L55 150 Z" stroke="#D4AF37" strokeWidth="0.4" opacity="0.12" />
     <circle cx="80" cy="150" r="18" stroke="#D4AF37" strokeWidth="0.4" opacity="0.15" />
     <circle cx="80" cy="150" r="10" stroke="#D4AF37" strokeWidth="0.3" opacity="0.12" />
-    
-    {/* Bottom ornament */}
     <path d="M40 320 Q80 290 120 320" stroke="#D4AF37" strokeWidth="0.5" opacity="0.2" fill="none"/>
     <path d="M50 340 Q80 315 110 340" stroke="#D4AF37" strokeWidth="0.4" opacity="0.15" fill="none"/>
     <path d="M80 300 L100 360 L80 420 L60 360 Z" stroke="#D4AF37" strokeWidth="0.4" opacity="0.12" />
     <circle cx="80" cy="360" r="12" stroke="#D4AF37" strokeWidth="0.3" opacity="0.12" />
-    
-    {/* Tiny corner dots */}
     <circle cx="20" cy="20" r="1.5" fill="#D4AF37" opacity="0.3" />
     <circle cx="140" cy="20" r="1.5" fill="#D4AF37" opacity="0.3" />
     <circle cx="20" cy="440" r="1.5" fill="#D4AF37" opacity="0.3" />
@@ -88,18 +78,18 @@ const DoorArabesque = () => (
   </svg>
 );
 
-/* ── Falling Rose Petals ─────────────────────────────────── */
+/* ── Falling Rose Petals (reduced count for performance) ── */
 const FallingPetals = () => {
   const petals = useMemo(() =>
-    Array.from({ length: 18 }).map((_, i) => ({
+    Array.from({ length: 10 }).map((_, i) => ({
       id: i,
       left: `${5 + Math.random() * 90}%`,
-      delay: `${Math.random() * 8}s`,
-      duration: `${6 + Math.random() * 6}s`,
+      delay: `${Math.random() * 6}s`,
+      duration: `${6 + Math.random() * 5}s`,
       size: 8 + Math.random() * 10,
       rotation: Math.random() * 360,
       opacity: 0.15 + Math.random() * 0.25,
-      hue: Math.random() > 0.5 ? '#D4AF37' : '#C8828D', // gold or rose-gold
+      hue: Math.random() > 0.5 ? '#D4AF37' : '#C8828D',
     })), []);
 
   return (
@@ -112,6 +102,7 @@ const FallingPetals = () => {
             left: p.left,
             animationDelay: p.delay,
             animationDuration: p.duration,
+            willChange: 'transform',
           }}
         >
           <svg width={p.size} height={p.size * 1.3} viewBox="0 0 12 16" style={{ transform: `rotate(${p.rotation}deg)`, opacity: p.opacity }}>
@@ -126,10 +117,10 @@ const FallingPetals = () => {
   );
 };
 
-/* ── Shimmering Gold Dust ────────────────────────────────── */
+/* ── Shimmering Gold Dust (reduced for performance) ──────── */
 const GoldDust = () => {
   const specs = useMemo(() =>
-    Array.from({ length: 30 }).map((_, i) => ({
+    Array.from({ length: 15 }).map((_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -151,6 +142,7 @@ const GoldDust = () => {
             height: s.size,
             animationDelay: s.delay,
             animationDuration: s.duration,
+            willChange: 'opacity',
           }}
         />
       ))}
@@ -163,14 +155,22 @@ export default function CardOpening({ data, onOpen }) {
   const [cardState, setCardState] = useState('closed');
   // states: 'closed', 'opening', 'zooming'
 
-  const handleOpen = () => {
-    // Any tap immediately jumps to homepage
-    if (window.cardTimeout) clearTimeout(window.cardTimeout);
-    setCardState('zooming');
-    setTimeout(() => {
-      onOpen();
-    }, 1200);
-  };
+  const handleOpen = useCallback(() => {
+    if (cardState === 'closed') {
+      // First tap: open doors
+      setCardState('opening');
+      // Auto-zoom after doors open
+      window.cardTimeout = setTimeout(() => {
+        setCardState('zooming');
+        setTimeout(() => onOpen(), 800);
+      }, 1400);
+    } else {
+      // Any subsequent tap: skip to homepage
+      if (window.cardTimeout) clearTimeout(window.cardTimeout);
+      setCardState('zooming');
+      setTimeout(() => onOpen(), 600);
+    }
+  }, [cardState, onOpen]);
 
   return (
     <AnimatePresence>
@@ -182,31 +182,28 @@ export default function CardOpening({ data, onOpen }) {
           perspective: '1200px',
         }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         {/* Ambient radial glow */}
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 600px 400px at 50% 45%, rgba(212,175,55,0.18) 0%, transparent 70%)' }} />
 
         {/* Falling rose petals (visible when opened) */}
-        <AnimatePresence>
-          {cardState !== 'closed' && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}>
-              <FallingPetals />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {cardState !== 'closed' && <FallingPetals />}
 
         {/* ── 3D Gatefold Card ───────────────────────────── */}
         <motion.div
           className="relative w-[320px] h-[460px] cursor-pointer"
           animate={{
-            scale: cardState === 'zooming' ? 3 : 1,
+            scale: cardState === 'zooming' ? 2.2 : 1,
             opacity: cardState === 'zooming' ? 0 : 1,
           }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{
+            duration: cardState === 'zooming' ? 0.8 : 0.5,
+            ease: [0.4, 0, 0.2, 1],
+          }}
           onClick={handleOpen}
-          style={{ transformStyle: 'preserve-3d' }}
+          style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}
         >
           {/* ─── INNER CARD (revealed content) ─────────── */}
           <div
@@ -242,7 +239,7 @@ export default function CardOpening({ data, onOpen }) {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: cardState !== 'closed' ? 1 : 0, y: cardState !== 'closed' ? 0 : -10 }}
-                transition={{ delay: 0.8, duration: 1 }}
+                transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
                 className="mb-3"
               >
                 <CrescentOrnament />
@@ -252,7 +249,7 @@ export default function CardOpening({ data, onOpen }) {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 0.6, duration: 1.2 }}
+                transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
                 className="arabic-text text-gold/70 text-[1.3rem] mb-6"
               >
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
@@ -262,7 +259,7 @@ export default function CardOpening({ data, onOpen }) {
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 0.9, duration: 0.8 }}
+                transition={{ delay: 0.6, duration: 0.5, ease: 'easeOut' }}
                 className="gold-shimmer-line-thick w-20 mb-5"
               />
 
@@ -270,7 +267,7 @@ export default function CardOpening({ data, onOpen }) {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 1, duration: 1 }}
+                transition={{ delay: 0.7, duration: 0.6, ease: 'easeOut' }}
                 className="font-serif text-white/50 text-[10px] tracking-[0.35em] uppercase mb-5 text-center"
               >
                 You are cordially invited<br />to the nikah ceremony of
@@ -278,9 +275,9 @@ export default function CardOpening({ data, onOpen }) {
 
               {/* Names */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: cardState !== 'closed' ? 1 : 0, y: cardState !== 'closed' ? 0 : 20 }}
-                transition={{ delay: 1.2, duration: 1 }}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: cardState !== 'closed' ? 1 : 0, y: cardState !== 'closed' ? 0 : 15 }}
+                transition={{ delay: 0.8, duration: 0.6, ease: 'easeOut' }}
                 className="text-center mb-5"
               >
                 <h1 className="font-script text-[2.8rem] gold-text leading-none">{data.groom.name}</h1>
@@ -292,7 +289,7 @@ export default function CardOpening({ data, onOpen }) {
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 1.4, duration: 0.8 }}
+                transition={{ delay: 0.9, duration: 0.5, ease: 'easeOut' }}
                 className="gold-shimmer-line w-14 mb-4"
               />
 
@@ -300,7 +297,7 @@ export default function CardOpening({ data, onOpen }) {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 1.5, duration: 1 }}
+                transition={{ delay: 1, duration: 0.6, ease: 'easeOut' }}
                 className="font-serif text-white/40 text-[10px] tracking-[0.25em] uppercase"
               >
                 {data.nikah.dateGregorian}
@@ -311,10 +308,10 @@ export default function CardOpening({ data, onOpen }) {
           {/* ─── LEFT DOOR ─────────────────────────────── */}
           <motion.div
             className="absolute top-0 left-0 w-1/2 h-full z-20 origin-left"
-            style={{ transformStyle: 'preserve-3d' }}
+            style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
             initial={{ rotateY: 0 }}
             animate={{ rotateY: cardState !== 'closed' ? -135 : 0 }}
-            transition={{ duration: 1.2, ease: 'easeInOut' }}
+            transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
           >
             {/* Front face */}
             <div
@@ -328,10 +325,8 @@ export default function CardOpening({ data, onOpen }) {
             >
               <div className="absolute inset-0 islamic-pattern-bg opacity-15" />
               <DoorArabesque />
-              {/* Embossed inner border */}
               <div className="absolute inset-2 border border-gold/15 rounded-sm" />
               <div className="absolute inset-4 rounded-sm" style={{ border: '0.5px solid rgba(212,175,55,0.08)' }} />
-              {/* Vertical gold accent line */}
               <div className="absolute right-0 top-8 bottom-8 w-[1px]"
                 style={{ background: 'linear-gradient(to bottom, transparent, rgba(212,175,55,0.3), transparent)' }} />
             </div>
@@ -343,10 +338,10 @@ export default function CardOpening({ data, onOpen }) {
           {/* ─── RIGHT DOOR ────────────────────────────── */}
           <motion.div
             className="absolute top-0 right-0 w-1/2 h-full z-20 origin-right"
-            style={{ transformStyle: 'preserve-3d' }}
+            style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
             initial={{ rotateY: 0 }}
             animate={{ rotateY: cardState !== 'closed' ? 135 : 0 }}
-            transition={{ duration: 1.2, ease: 'easeInOut' }}
+            transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
           >
             {/* Front face */}
             <div
@@ -362,7 +357,6 @@ export default function CardOpening({ data, onOpen }) {
               <DoorArabesque />
               <div className="absolute inset-2 border border-gold/15 rounded-sm" />
               <div className="absolute inset-4 rounded-sm" style={{ border: '0.5px solid rgba(212,175,55,0.08)' }} />
-              {/* Vertical gold accent line */}
               <div className="absolute left-0 top-8 bottom-8 w-[1px]"
                 style={{ background: 'linear-gradient(to bottom, transparent, rgba(212,175,55,0.3), transparent)' }} />
             </div>
@@ -376,10 +370,10 @@ export default function CardOpening({ data, onOpen }) {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
             animate={{
               opacity: cardState !== 'closed' ? 0 : 1,
-              scale: cardState !== 'closed' ? 1.5 : 1,
-              rotate: cardState !== 'closed' ? 15 : 0,
+              scale: cardState !== 'closed' ? 1.3 : 1,
+              rotate: cardState !== 'closed' ? 10 : 0,
             }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             {/* Outer seal glow ring */}
             <div className="absolute -inset-3 rounded-full wax-seal-glow" />
@@ -391,6 +385,7 @@ export default function CardOpening({ data, onOpen }) {
           {/* ─── TAP HINT ──────────────────────────────── */}
           <motion.div
             animate={{ opacity: cardState === 'closed' ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
             className="absolute left-1/2 -translate-x-1/2 -bottom-20 flex flex-col items-center gap-3 pointer-events-none"
           >
             <motion.div
@@ -409,7 +404,7 @@ export default function CardOpening({ data, onOpen }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: cardState === 'opening' ? 1 : 0 }}
-            transition={{ delay: cardState === 'opening' ? 1.5 : 0, duration: 0.8 }}
+            transition={{ delay: cardState === 'opening' ? 1 : 0, duration: 0.5 }}
             className="absolute left-1/2 -translate-x-1/2 -bottom-20 flex flex-col items-center gap-2 pointer-events-none"
           >
             <span className="text-gold/40 text-[9px] tracking-[0.4em] uppercase font-serif">

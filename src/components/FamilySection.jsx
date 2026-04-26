@@ -62,7 +62,7 @@ export default function FamilySection({ data }) {
         </AnimatedSection>
 
         {/* Couple Hands Image — perfectly centered with equal spacing */}
-        <div className="flex flex-col items-center justify-center -my-4 relative z-10">
+        <div className="flex flex-col items-center justify-center -mt-8 -mb-2 relative z-10 ml-3">
           <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-gold/40 shadow-[0_0_30px_rgba(212,175,55,0.25)]">
             <img
               src="/images/couple-hands.png"

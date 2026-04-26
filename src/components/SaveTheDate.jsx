@@ -76,17 +76,17 @@ export default function SaveTheDate({ data }) {
       </AnimatedSection>
 
       <AnimatedSection delay={0.25}>
-        <div className="flex flex-col gap-4 items-center">
-          <GoldButton onClick={() => handleGoogleCal('nikah')} variant="primary">
+        <div className="flex flex-col gap-3 items-center w-full px-6" style={{ maxWidth: '340px', margin: '0 auto' }}>
+          <GoldButton onClick={() => handleGoogleCal('nikah')} variant="primary" className="w-full">
             <Calendar size={16} /> Add Nikah to Calendar
           </GoldButton>
-          <div className="flex gap-3 items-center">
-            <GoldButton onClick={() => handleDownloadICS('nikah')} variant="outline">
-              <Calendar size={16} /> Download .ics
+          <div className="flex gap-3 items-center w-full">
+            <GoldButton onClick={() => handleDownloadICS('nikah')} variant="outline" className="flex-1">
+              <Calendar size={14} /> Download .ics
             </GoldButton>
             {data.nikah.dateGregorian !== data.walima.dateGregorian && (
-              <GoldButton onClick={() => handleGoogleCal('walima')} variant="ghost">
-                <Calendar size={16} /> Walima
+              <GoldButton onClick={() => handleGoogleCal('walima')} variant="outline" className="flex-1">
+                <Calendar size={14} /> Walima
               </GoldButton>
             )}
           </div>
