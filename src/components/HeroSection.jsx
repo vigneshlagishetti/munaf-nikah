@@ -43,7 +43,7 @@ export default function HeroSection({ data }) {
             that you may dwell in tranquility with them, and He has put love and mercy
             between your hearts."
           </p>
-          <p className="font-display text-gold text-sm mt-6 tracking-widest">
+          <p className="font-display gold-text text-sm mt-6 tracking-widest">
             — Surah Ar-Rum (30:21)
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function HeroSection({ data }) {
 
       {/* Nikah Invitation */}
       <AnimatedSection delay={0.3}>
-        <p className="font-display text-gold text-xs md:text-sm tracking-[0.35em] uppercase mb-12 font-medium">
+        <p className="font-display gold-text text-xs md:text-sm tracking-[0.35em] uppercase mb-12 font-medium">
           Nikah Invitation
         </p>
       </AnimatedSection>

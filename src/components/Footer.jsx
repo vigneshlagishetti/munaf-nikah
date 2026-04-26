@@ -65,12 +65,11 @@ export default function Footer({ data }) {
       </AnimatedSection>
 
       {/* Credits */}
-      <p className="text-white/40 text-[10px] tracking-wide">
-
-      </p>
-      <p className="text-white/30 text-[10px] tracking-wide mt-2">
-        Developed by Lagishetti Vignesh
-      </p>
+      <div className="mt-12">
+        <p className="text-white/30 text-[10px] tracking-wide">
+          Developed by Lagishetti Vignesh
+        </p>
+      </div>
     </footer>
   );
 }
