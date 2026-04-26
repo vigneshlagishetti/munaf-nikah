@@ -115,9 +115,9 @@ export default function HeroSection({ data }) {
         <div className="mb-10">
           <div className="mihrab-clip bg-gradient-to-b from-gold/10 to-gold/5 border border-gold/20 w-40 h-52 mx-auto flex items-center justify-center rounded-b-2xl">
             <div className="text-center px-4">
-              <p className="font-script text-3xl gold-text">M</p>
+              <p className="font-script text-3xl gold-text pr-2">M</p>
               <p className="text-gold/50 text-xs my-1.5">&</p>
-              <p className="font-script text-3xl gold-text">R</p>
+              <p className="font-script text-3xl gold-text pr-2">R</p>
             </div>
           </div>
         </div>

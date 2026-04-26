@@ -65,7 +65,7 @@ export default function Footer({ data }) {
       </AnimatedSection>
 
       {/* Credits */}
-      <div className="mt-12">
+      <div className="mt-24">
         <p className="text-white/30 text-[10px] tracking-wide">
           Developed by Lagishetti Vignesh
         </p>
