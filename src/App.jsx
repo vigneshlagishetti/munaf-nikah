@@ -96,7 +96,6 @@ export default function App() {
         <HeroSection data={data} />
         <SectionDivider />
         <FamilySection data={data} />
-        <SectionDivider />
         <SaveTheDate data={data} />
         <SectionDivider />
         <EventsSection data={data} />

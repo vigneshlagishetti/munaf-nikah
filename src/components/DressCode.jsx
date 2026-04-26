@@ -8,7 +8,7 @@ export default function DressCode({ data }) {
     <section className="section-padding">
       <AnimatedSection>
         <h2 className="font-display text-3xl md:text-4xl gold-text text-center mb-4">Dress Code</h2>
-        <p className="text-white/40 text-center text-sm mb-14 leading-relaxed">Suggested attire for the celebrations</p>
+        <p className="text-white/70 text-center text-sm mb-14 leading-relaxed">Suggested attire for the celebrations</p>
       </AnimatedSection>
 
       <div className="flex flex-col gap-8 max-w-2xl mx-auto px-6">
@@ -24,11 +24,11 @@ export default function DressCode({ data }) {
             <div className="grid grid-cols-2 gap-8 text-sm text-center">
               <div>
                 <p className="text-gold/50 text-xs mb-3 tracking-wide font-medium">Men</p>
-                <p className="text-white/60 leading-relaxed">Sherwani, Kurta Pajama, or Pathani Suit in dark or earthy tones</p>
+                <p className="text-white/85 leading-relaxed">Sherwani, Kurta Pajama, or Pathani Suit in dark or earthy tones</p>
               </div>
               <div>
                 <p className="text-gold/50 text-xs mb-3 tracking-wide font-medium">Women</p>
-                <p className="text-white/60 leading-relaxed">Abaya, Hijab, Anarkali, or modest Sharara in greens and neutrals</p>
+                <p className="text-white/85 leading-relaxed">Abaya, Hijab, Anarkali, or modest Sharara in greens and neutrals</p>
               </div>
             </div>
           </div>
@@ -46,18 +46,18 @@ export default function DressCode({ data }) {
             <div className="grid grid-cols-2 gap-8 text-sm text-center">
               <div>
                 <p className="text-gold/50 text-xs mb-3 tracking-wide font-medium">Men</p>
-                <p className="text-white/60 leading-relaxed">Three-piece suit, Sherwani, or Indo-Western in rich tones</p>
+                <p className="text-white/85 leading-relaxed">Three-piece suit, Sherwani, or Indo-Western in rich tones</p>
               </div>
               <div>
                 <p className="text-gold/50 text-xs mb-3 tracking-wide font-medium">Women</p>
-                <p className="text-white/60 leading-relaxed">Lehenga, Saree, Gown, or formal Hijab outfit in jewel tones or pastels</p>
+                <p className="text-white/85 leading-relaxed">Lehenga, Saree, Gown, or formal Hijab outfit in jewel tones or pastels</p>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
         <AnimatedSection delay={0.3}>
-          <p className="text-white/30 text-xs text-center italic leading-relaxed mt-2">
+          <p className="text-white/60 text-xs text-center italic leading-relaxed mt-2">
             We kindly request all guests to observe modest dressing in line with Islamic values. JazakAllah Khair 🤍
           </p>
         </AnimatedSection>

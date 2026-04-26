@@ -21,7 +21,7 @@ export default function VenueSection({ data }) {
       <div className="p-7 md:p-8 flex-1 flex flex-col text-center">
         <p className="text-gold/50 text-xs tracking-[0.25em] uppercase mb-4">{label}</p>
         <h3 className="font-display text-2xl text-white mb-2">{venue.venueName}</h3>
-        <p className="text-white/50 text-sm mb-8 leading-relaxed max-w-sm mx-auto">{venue.venueAddress}</p>
+        <p className="text-white/80 text-sm mb-8 leading-relaxed max-w-sm mx-auto">{venue.venueAddress}</p>
 
         {/* Venue Image / Map */}
         <div className="w-full h-48 rounded-xl mb-8 overflow-hidden border border-gold/10">
@@ -33,7 +33,7 @@ export default function VenueSection({ data }) {
             <div className="w-full h-full bg-charcoal-mid flex items-center justify-center">
               <div className="text-center space-y-3">
                 <MapPin size={28} className="text-gold/30 mx-auto" />
-                <p className="text-white/30 text-sm">Interactive Map</p>
+                <p className="text-white/60 text-sm">Interactive Map</p>
                 <a href={`https://www.google.com/maps?q=${venue.lat},${venue.lng}`}
                   target="_blank" rel="noopener noreferrer" className="text-gold/50 text-xs underline hover:text-gold transition-colors">
                   Open in Google Maps
@@ -62,11 +62,11 @@ export default function VenueSection({ data }) {
 
         {data.nearestMasjid && (
           <div className="mt-8 pt-6 border-t border-gold/10 space-y-4 text-center">
-            <p className="text-white/40 text-sm">
+            <p className="text-white/70 text-sm">
               <ParkingCircle size={14} className="text-gold/40 inline-block mr-2 align-middle" />
               <span className="align-middle">Free parking available</span>
             </p>
-            <p className="text-white/40 text-sm leading-relaxed">
+            <p className="text-white/70 text-sm leading-relaxed">
               <span className="mr-2">🕌</span>
               {data.nearestMasjid}
             </p>
@@ -80,7 +80,7 @@ export default function VenueSection({ data }) {
     <section className="section-padding islamic-pattern-dense">
       <AnimatedSection>
         <h2 className="font-display text-3xl md:text-4xl gold-text text-center mb-4">Venue & Location</h2>
-        <p className="text-white/40 text-center text-sm mb-14 leading-relaxed">Find your way to the celebration</p>
+        <p className="text-white/70 text-center text-sm mb-14 leading-relaxed">Find your way to the celebration</p>
       </AnimatedSection>
 
       <div className="flex flex-col md:flex-row gap-8 md:gap-10 max-w-4xl mx-auto px-6 justify-center">

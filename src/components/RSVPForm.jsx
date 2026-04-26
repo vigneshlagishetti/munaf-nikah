@@ -34,14 +34,14 @@ export default function RSVPForm({ data }) {
     `Assalamu Alaikum! I would like to RSVP for the wedding of ${data.groom.name} & ${data.bride.name}.\n\nName: \nNumber of Guests: \nAttending Nikah: Yes/No\nAttending Walima: Yes/No\n\nDua for the couple: `
   );
 
-  const inputClass = 'w-full bg-charcoal-dark/50 border border-gold/15 rounded-xl px-5 py-4 text-white/90 text-sm placeholder-ivory/25 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all shadow-inner hover:border-gold/30';
+  const inputClass = 'w-full bg-charcoal-dark/50 border border-gold/15 rounded-xl px-5 py-4 text-white text-sm placeholder-ivory/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-all shadow-inner hover:border-gold/30';
   const labelClass = 'text-gold/60 text-xs font-medium tracking-wide mb-2.5 block';
 
   return (
     <section className="section-padding islamic-pattern-dense">
       <AnimatedSection>
         <h2 className="font-display text-3xl md:text-4xl gold-text text-center mb-4">RSVP</h2>
-        <p className="text-white/40 text-center text-sm mb-14 leading-relaxed">Let us know if you can make it</p>
+        <p className="text-white/70 text-center text-sm mb-14 leading-relaxed">Let us know if you can make it</p>
       </AnimatedSection>
 
       <div className="max-w-2xl mx-auto px-6">
@@ -105,7 +105,7 @@ export default function RSVPForm({ data }) {
               <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', delay: 0.2 }}
                 className="text-5xl mb-6">🤲</motion.div>
               <h3 className="font-display text-2xl gold-text mb-4">JazakAllah Khair!</h3>
-              <p className="text-white/60 text-sm leading-relaxed">Thank you for your response. We look forward to celebrating with you.</p>
+              <p className="text-white/85 text-sm leading-relaxed">Thank you for your response. We look forward to celebrating with you.</p>
               <p className="arabic-text text-gold/50 text-lg mt-6">بَارَكَ اللَّهُ لَكُمْ</p>
             </motion.div>
           )}
@@ -114,7 +114,7 @@ export default function RSVPForm({ data }) {
         {/* WhatsApp fallback */}
         <AnimatedSection delay={0.2}>
           <div className="text-center mt-8">
-            <p className="text-white/30 text-xs mb-4 leading-relaxed">Or RSVP directly via WhatsApp</p>
+            <p className="text-white/60 text-xs mb-4 leading-relaxed">Or RSVP directly via WhatsApp</p>
             <GoldButton href={`https://wa.me/${data.contact.groomWhatsApp.replace(/\+/g, '')}?text=${whatsappMsg}`} variant="outline">
               <MessageCircle size={14} /> RSVP via WhatsApp
             </GoldButton>

@@ -10,7 +10,7 @@ export default function HeroSection({ data }) {
         <div className="absolute inset-0 pointer-events-none">
           <img src={data.images.heroBg} alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(to bottom, rgba(5,6,5,0.4) 0%, rgba(5,6,5,0.3) 50%, rgba(5,6,5,0.6) 100%)'
+            background: 'linear-gradient(to bottom, rgba(5,6,5,0.25) 0%, rgba(5,6,5,0.15) 50%, rgba(5,6,5,0.45) 100%)'
           }} />
         </div>
       )}
@@ -38,7 +38,7 @@ export default function HeroSection({ data }) {
       {/* Quranic Verse */}
       <AnimatedSection delay={0.15}>
         <div className="max-w-md mx-auto mb-16 px-8">
-          <p className="font-display text-white text-base md:text-lg leading-[2] italic">
+          <p className="font-display text-base md:text-lg leading-[2] font-medium" style={{ color: '#FFFFFF' }}>
             "And among His signs is that He created for you mates from among yourselves,
             that you may dwell in tranquility with them, and He has put love and mercy
             between your hearts."
@@ -53,7 +53,7 @@ export default function HeroSection({ data }) {
 
       {/* Nikah Invitation */}
       <AnimatedSection delay={0.3}>
-        <p className="font-display text-gold text-xs md:text-sm tracking-[0.35em] uppercase mb-12">
+        <p className="font-display text-gold text-xs md:text-sm tracking-[0.35em] uppercase mb-12 font-medium">
           Nikah Invitation
         </p>
       </AnimatedSection>
@@ -83,7 +83,7 @@ export default function HeroSection({ data }) {
           <h1 className="font-script text-4xl md:text-5xl gold-text leading-tight drop-shadow-2xl">
             Roohiya
           </h1>
-          <p className="font-display text-white/80 text-xs mt-6 tracking-[0.2em] uppercase">
+          <p className="font-display text-xs mt-6 tracking-[0.2em] uppercase font-medium" style={{ color: '#FFFFFF' }}>
             S. Abdul Munaaf  &  M. Roohiya Muffasareen
           </p>
         </div>
@@ -92,7 +92,7 @@ export default function HeroSection({ data }) {
       {/* Date Card */}
       <AnimatedSection delay={0.5}>
         <div className="px-8 py-5 md:px-12 md:py-7 mb-14 mx-6">
-          <p className="font-display text-white/90 text-lg md:text-xl tracking-widest uppercase">
+          <p className="font-display text-lg md:text-xl tracking-widest uppercase font-semibold" style={{ color: '#FFFFFF' }}>
             {data.nikah.dateGregorian}
           </p>
           <p className="hijri-text text-gold text-base md:text-lg mt-2 font-light">

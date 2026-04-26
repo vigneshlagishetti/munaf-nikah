@@ -11,7 +11,7 @@ export default function EventsSection({ data }) {
     <section className="section-padding">
       <AnimatedSection>
         <h2 className="font-display text-3xl md:text-4xl gold-text text-center mb-4">The Two Events</h2>
-        <p className="text-white/40 text-center text-sm mb-14 leading-relaxed">Celebrating the Sunnah</p>
+        <p className="text-white/70 text-center text-sm mb-14 leading-relaxed">Celebrating the Sunnah</p>
       </AnimatedSection>
 
       <div className="flex flex-col md:flex-row gap-8 md:gap-10 max-w-4xl mx-auto px-6 justify-center">
@@ -26,21 +26,21 @@ export default function EventsSection({ data }) {
                 <circle cx="16" cy="16" r="5" fill="#0A0A0A" stroke="#046307" strokeWidth="1" />
               </svg>
               <h3 className="font-display text-2xl text-white mb-1">Nikah</h3>
-              <p className="text-white/40 text-xs mb-8">The sacred marriage contract</p>
+              <p className="text-white/70 text-xs mb-8">The sacred marriage contract</p>
 
               {/* Date & Time */}
               <div className="space-y-5 text-sm">
                 <div>
                   <Clock size={16} className="text-gold/50 mx-auto mb-2" />
-                  <p className="text-white/80 leading-relaxed">{data.nikah.dateGregorian}</p>
+                  <p className="text-white leading-relaxed">{data.nikah.dateGregorian}</p>
                   <p className="text-gold/50 hijri-text text-xs mt-1">{data.nikah.dateHijri}</p>
-                  <p className="text-white/60 mt-1">{data.nikah.time}</p>
+                  <p className="text-white/85 mt-1">{data.nikah.time}</p>
                 </div>
                 <div className="gold-shimmer-line w-10 mx-auto" />
                 <div>
                   <MapPin size={16} className="text-gold/50 mx-auto mb-2" />
-                  <p className="text-white/80 font-medium">{data.nikah.venueName}</p>
-                  <p className="text-white/50 text-xs mt-1 leading-relaxed max-w-xs mx-auto">{data.nikah.venueAddress}</p>
+                  <p className="text-white font-medium">{data.nikah.venueName}</p>
+                  <p className="text-white/80 text-xs mt-1 leading-relaxed max-w-xs mx-auto">{data.nikah.venueAddress}</p>
                 </div>
               </div>
 
@@ -58,13 +58,13 @@ export default function EventsSection({ data }) {
                     exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
                     <div className="pt-5 mt-5 border-t border-gold/10 space-y-4 text-sm">
                       {data.nikah.qaziName && (
-                        <p className="text-white/60"><span className="text-gold/50">Qazi:</span> {data.nikah.qaziName}</p>
+                        <p className="text-white/85"><span className="text-gold/70">Qazi:</span> {data.nikah.qaziName}</p>
                       )}
-                      <p className="text-white/60 leading-relaxed">
+                      <p className="text-white/85 leading-relaxed">
                         <Shirt size={14} className="text-gold/50 inline-block mr-2 align-middle" />
                         {data.nikah.dressCode}
                       </p>
-                      <p className="text-white/40 text-xs italic leading-relaxed">{data.nikah.prayerNote}</p>
+                      <p className="text-white/70 text-xs italic leading-relaxed">{data.nikah.prayerNote}</p>
                     </div>
                   </motion.div>
                 )}
@@ -84,21 +84,21 @@ export default function EventsSection({ data }) {
                 <circle cx="16" cy="16" r="4" fill="#B76E79" opacity="0.3" />
               </svg>
               <h3 className="font-display text-2xl text-white mb-1">Walima</h3>
-              <p className="text-white/40 text-xs mb-8">The reception feast</p>
+              <p className="text-white/70 text-xs mb-8">The reception feast</p>
 
               {/* Date & Time */}
               <div className="space-y-5 text-sm">
                 <div>
                   <Clock size={16} className="text-gold/50 mx-auto mb-2" />
-                  <p className="text-white/80 leading-relaxed">{data.walima.dateGregorian}</p>
+                  <p className="text-white leading-relaxed">{data.walima.dateGregorian}</p>
                   <p className="text-gold/50 hijri-text text-xs mt-1">{data.walima.dateHijri}</p>
-                  <p className="text-white/60 mt-1">{data.walima.time}</p>
+                  <p className="text-white/85 mt-1">{data.walima.time}</p>
                 </div>
                 <div className="gold-shimmer-line w-10 mx-auto" />
                 <div>
                   <MapPin size={16} className="text-gold/50 mx-auto mb-2" />
-                  <p className="text-white/80 font-medium">{data.walima.venueName}</p>
-                  <p className="text-white/50 text-xs mt-1 leading-relaxed max-w-xs mx-auto">{data.walima.venueAddress}</p>
+                  <p className="text-white font-medium">{data.walima.venueName}</p>
+                  <p className="text-white/80 text-xs mt-1 leading-relaxed max-w-xs mx-auto">{data.walima.venueAddress}</p>
                 </div>
               </div>
 
@@ -115,11 +115,11 @@ export default function EventsSection({ data }) {
                   <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
                     <div className="pt-5 mt-5 border-t border-gold/10 space-y-4 text-sm">
-                      <p className="text-white/60 leading-relaxed">
+                      <p className="text-white/85 leading-relaxed">
                         <Shirt size={14} className="text-gold/50 inline-block mr-2 align-middle" />
                         {data.walima.dressCode}
                       </p>
-                      <p className="text-white/40 text-xs italic leading-relaxed">{data.walima.note}</p>
+                      <p className="text-white/70 text-xs italic leading-relaxed">{data.walima.note}</p>
                     </div>
                   </motion.div>
                 )}

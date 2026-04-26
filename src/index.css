@@ -34,14 +34,15 @@
 
 html {
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--color-charcoal);
-  color: var(--color-ivory);
+  color: #FFFFFF;
   overflow-x: hidden;
   min-height: 100vh;
 }

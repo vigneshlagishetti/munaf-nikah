@@ -9,7 +9,7 @@ export default function FamilySection({ data }) {
     <section className="section-padding islamic-pattern-dense">
       <AnimatedSection>
         <h2 className="font-display text-3xl md:text-4xl gold-text text-center mb-4">Meet the Families</h2>
-        <p className="text-white/40 text-center text-sm mb-14 font-body leading-relaxed max-w-md mx-auto">
+        <p className="text-white/70 text-center text-sm mb-14 font-body leading-relaxed max-w-md mx-auto">
           Two families united by the will of Allah ﷻ
         </p>
       </AnimatedSection>
@@ -32,11 +32,11 @@ export default function FamilySection({ data }) {
                     <img src="/images/groom-family.png" alt="Groom Family" className="w-full h-full object-cover" />
                   </div>
                   <h3 className="font-display text-2xl text-white mb-2">{data.groom.name}</h3>
-                  <p className="text-white/50 text-sm font-body mb-5 leading-relaxed">
+                  <p className="text-white/80 text-sm font-body mb-5 leading-relaxed">
                     S/O Mr & Mrs {data.groom.father}
                   </p>
                   <div className="gold-shimmer-line w-16 mx-auto mb-5" />
-                  <p className="font-display text-white/60 text-sm italic leading-[1.8]">
+                  <p className="font-display text-white/85 text-sm italic leading-[1.8]">
                     "{data.groom.dua}"
                   </p>
                   <p className="text-gold/30 text-xs mt-5">Tap for details</p>
@@ -47,13 +47,13 @@ export default function FamilySection({ data }) {
               <div className="flip-card-back absolute inset-0 glass-card p-8">
                 <div className="text-center">
                   <p className="text-gold/50 text-xs tracking-[0.25em] uppercase mb-5">The {data.groom.family}</p>
-                  <div className="space-y-3 text-sm text-white/70">
+                  <div className="space-y-3 text-sm text-white/90">
                     <p><span className="text-gold/50">Father:</span> {data.groom.father}</p>
                     <p><span className="text-gold/50">Mother:</span> {data.groom.mother}</p>
                     <p><span className="text-gold/50">Grandfather:</span> {data.groom.grandfather}</p>
                   </div>
                   <div className="gold-shimmer-line w-12 mx-auto my-6" />
-                  <p className="text-white/40 text-xs leading-relaxed">
+                  <p className="text-white/70 text-xs leading-relaxed">
                     May Allah bless this family and increase their love and unity.
                   </p>
                   <p className="text-gold/30 text-xs mt-6">Tap to flip back</p>
@@ -80,11 +80,11 @@ export default function FamilySection({ data }) {
                     <img src="/images/bride-family.png" alt="Bride Family" className="w-full h-full object-cover" />
                   </div>
                   <h3 className="font-display text-2xl text-white mb-2">{data.bride.name}</h3>
-                  <p className="text-white/50 text-sm font-body mb-5 leading-relaxed">
+                  <p className="text-white/80 text-sm font-body mb-5 leading-relaxed">
                     D/O Mr & Mrs {data.bride.father}
                   </p>
                   <div className="gold-shimmer-line w-16 mx-auto mb-5" />
-                  <p className="font-display text-white/60 text-sm italic leading-[1.8]">
+                  <p className="font-display text-white/85 text-sm italic leading-[1.8]">
                     "{data.bride.dua}"
                   </p>
                   <p className="text-gold/30 text-xs mt-5">Tap for details</p>
@@ -95,13 +95,13 @@ export default function FamilySection({ data }) {
               <div className="flip-card-back absolute inset-0 glass-card p-8">
                 <div className="text-center">
                   <p className="text-gold/50 text-xs tracking-[0.25em] uppercase mb-5">The {data.bride.family}</p>
-                  <div className="space-y-3 text-sm text-white/70">
+                  <div className="space-y-3 text-sm text-white/90">
                     <p><span className="text-gold/50">Father:</span> {data.bride.father}</p>
                     <p><span className="text-gold/50">Mother:</span> {data.bride.mother}</p>
                     <p><span className="text-gold/50">Grandfather:</span> {data.bride.grandfather}</p>
                   </div>
                   <div className="gold-shimmer-line w-12 mx-auto my-6" />
-                  <p className="text-white/40 text-xs leading-relaxed">
+                  <p className="text-white/70 text-xs leading-relaxed">
                     May Allah unite both families in love, respect, and faith.
                   </p>
                   <p className="text-gold/30 text-xs mt-6">Tap to flip back</p>

@@ -14,7 +14,7 @@ export default function ContactSection({ data }) {
     <section className="section-padding islamic-pattern-dense">
       <AnimatedSection>
         <h2 className="font-display text-3xl md:text-4xl gold-text text-center mb-4">Contact</h2>
-        <p className="text-white/40 text-center text-sm mb-14 leading-relaxed">Reach out to us anytime</p>
+        <p className="text-white/70 text-center text-sm mb-14 leading-relaxed">Reach out to us anytime</p>
       </AnimatedSection>
 
       <div className={`grid gap-6 max-w-4xl mx-auto px-6 ${contacts.length === 1 ? 'grid-cols-1 max-w-sm' : contacts.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-2xl' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
@@ -23,8 +23,8 @@ export default function ContactSection({ data }) {
             <div className="glass-card interactive-card p-7 flex flex-col items-center gap-5 text-center h-full">
               <span className="text-4xl mb-1">{c.icon}</span>
               <div className="flex-1">
-                <p className="text-white/80 text-base font-medium">{c.label}</p>
-                <p className="text-white/40 text-sm mt-2">{c.phone}</p>
+                <p className="text-white text-base font-medium">{c.label}</p>
+                <p className="text-white/70 text-sm mt-2">{c.phone}</p>
               </div>
               <div className="flex gap-4 mt-4">
                 <a href={`https://wa.me/${c.phone.replace(/\+/g, '')}`}

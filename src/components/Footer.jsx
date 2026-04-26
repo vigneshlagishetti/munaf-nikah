@@ -43,7 +43,7 @@ export default function Footer({ data }) {
           <p className="arabic-text text-gold/60 text-xl leading-loose mb-4">
             بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
           </p>
-          <p className="font-display text-white/50 text-sm italic leading-[1.8]">
+          <p className="font-display text-white/80 text-sm italic leading-[1.8]">
             "May Allah bless you, and shower His blessings upon you, and unite you both in goodness."
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function Footer({ data }) {
 
       {/* Share */}
       <AnimatedSection delay={0.2}>
-        <p className="text-white/30 text-xs mb-5 tracking-wide">Share this invitation</p>
+        <p className="text-white/60 text-xs mb-5 tracking-wide">Share this invitation</p>
         <div className="flex justify-center gap-4 mb-10">
           <GoldButton onClick={handleWhatsApp} variant="outline">
             <MessageCircle size={14} /> WhatsApp
@@ -65,7 +65,7 @@ export default function Footer({ data }) {
       </AnimatedSection>
 
       {/* Credits */}
-      <p className="text-white/15 text-[10px] tracking-wide">
+      <p className="text-white/40 text-[10px] tracking-wide">
         Made with 🤍 and du'a
       </p>
     </footer>
