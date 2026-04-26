@@ -157,18 +157,17 @@ export default function CardOpening({ data, onOpen }) {
 
   const handleOpen = useCallback(() => {
     if (cardState === 'closed') {
-      // First tap: open doors
+      // First tap: open doors, then hold for 3 seconds before transitioning
       setCardState('opening');
-      // Auto-zoom after doors open
       window.cardTimeout = setTimeout(() => {
         setCardState('zooming');
-        setTimeout(() => onOpen(), 800);
-      }, 1400);
-    } else {
-      // Any subsequent tap: skip to homepage
+        setTimeout(() => onOpen(), 1000);
+      }, 3000); // Hold open for 3 seconds
+    } else if (cardState === 'opening') {
+      // Tap during opening: skip wait, zoom immediately
       if (window.cardTimeout) clearTimeout(window.cardTimeout);
       setCardState('zooming');
-      setTimeout(() => onOpen(), 600);
+      setTimeout(() => onOpen(), 800);
     }
   }, [cardState, onOpen]);
 
@@ -195,37 +194,45 @@ export default function CardOpening({ data, onOpen }) {
         <motion.div
           className="relative w-[320px] h-[460px] cursor-pointer"
           animate={{
-            scale: cardState === 'zooming' ? 2.2 : 1,
+            scale: cardState === 'zooming' ? 1.8 : 1,
             opacity: cardState === 'zooming' ? 0 : 1,
           }}
           transition={{
-            duration: cardState === 'zooming' ? 0.8 : 0.5,
-            ease: [0.4, 0, 0.2, 1],
+            duration: cardState === 'zooming' ? 1.2 : 0.5,
+            ease: [0.25, 0.1, 0.25, 1],
           }}
           onClick={handleOpen}
           style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}
         >
-          {/* ─── INNER CARD (revealed content) ─────────── */}
+          {/* ─── INNER CARD (revealed content) — Premium Wedding Card ── */}
           <div
             className="absolute inset-0 rounded-md overflow-hidden flex flex-col items-center justify-center"
             style={{
               transform: 'translateZ(-1px)',
-              background: 'linear-gradient(170deg, #0f0e0a 0%, #0a0908 30%, #080704 70%, #0d0c08 100%)',
-              border: '1px solid rgba(212,175,55,0.25)',
-              boxShadow: 'inset 0 0 80px rgba(0,0,0,0.6), inset 0 0 20px rgba(212,175,55,0.04)',
+              background: 'linear-gradient(170deg, #1a1710 0%, #12100a 25%, #0d0b07 50%, #100e08 75%, #1a1710 100%)',
+              border: '1.5px solid rgba(212,175,55,0.35)',
+              boxShadow: 'inset 0 0 100px rgba(0,0,0,0.5), inset 0 0 40px rgba(212,175,55,0.06), 0 0 60px rgba(212,175,55,0.08)',
             }}
           >
+            {/* Warm ambient glow behind content */}
+            <div className="absolute inset-0 pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse 200px 250px at 50% 45%, rgba(212,175,55,0.08) 0%, transparent 70%)' }} />
+
             {/* Islamic pattern overlay */}
-            <div className="absolute inset-0 islamic-pattern-bg pointer-events-none opacity-30" />
+            <div className="absolute inset-0 islamic-pattern-bg pointer-events-none opacity-20" />
             
             {/* Shimmering gold dust */}
             <GoldDust />
 
-            {/* Inner embossed frame */}
-            <div className="absolute inset-3 rounded-sm pointer-events-none"
-              style={{ border: '1px solid rgba(212,175,55,0.12)' }} />
-            <div className="absolute inset-5 rounded-sm pointer-events-none"
-              style={{ border: '0.5px solid rgba(212,175,55,0.08)' }} />
+            {/* Outer gold frame */}
+            <div className="absolute inset-2 rounded-sm pointer-events-none"
+              style={{ border: '1px solid rgba(212,175,55,0.2)' }} />
+            {/* Inner delicate frame */}
+            <div className="absolute inset-4 rounded-sm pointer-events-none"
+              style={{ border: '0.5px solid rgba(212,175,55,0.12)' }} />
+            {/* Innermost accent frame */}
+            <div className="absolute inset-6 rounded-sm pointer-events-none"
+              style={{ border: '0.5px solid rgba(212,175,55,0.06)' }} />
 
             {/* Corner flourishes */}
             <CornerFlourish className="absolute top-1 left-1 pointer-events-none" />
@@ -234,74 +241,95 @@ export default function CardOpening({ data, onOpen }) {
             <CornerFlourish className="absolute bottom-1 right-1 pointer-events-none" style={{ transform: 'scale(-1, -1)' }} />
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col items-center px-8">
+            <div className="relative z-10 flex flex-col items-center px-6">
+              {/* Bismillah — Arabic calligraphy */}
+              <motion.p
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: cardState !== 'closed' ? 1 : 0, y: cardState !== 'closed' ? 0 : -8 }}
+                transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
+                className="text-[1.4rem] mb-2 text-center"
+                style={{ fontFamily: "'Amiri', serif", color: 'rgba(212,175,55,0.8)' }}
+              >
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+              </motion.p>
+
               {/* Crescent ornament */}
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: cardState !== 'closed' ? 1 : 0, y: cardState !== 'closed' ? 0 : -10 }}
-                transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: cardState !== 'closed' ? 1 : 0, scale: cardState !== 'closed' ? 1 : 0.8 }}
+                transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
                 className="mb-3"
               >
                 <CrescentOrnament />
               </motion.div>
 
-              {/* Bismillah */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
-                className="arabic-text text-gold/70 text-[1.3rem] mb-6"
-              >
-                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-              </motion.p>
-
-              {/* Shimmer line */}
+              {/* Top shimmer line */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 0.6, duration: 0.5, ease: 'easeOut' }}
-                className="gold-shimmer-line-thick w-20 mb-5"
+                transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
+                className="gold-shimmer-line-thick w-24 mb-4"
               />
 
-              {/* Subtitle */}
+              {/* Invitation text */}
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 0.7, duration: 0.6, ease: 'easeOut' }}
-                className="font-serif text-white/50 text-[10px] tracking-[0.35em] uppercase mb-5 text-center"
+                transition={{ delay: 0.5, duration: 0.7, ease: 'easeOut' }}
+                className="text-center mb-1 leading-relaxed"
+                style={{ fontFamily: "'Cormorant Garamond', serif", color: 'rgba(255,255,255,0.55)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase' }}
               >
-                You are cordially invited<br />to the nikah ceremony of
+                Together with their families
               </motion.p>
 
-              {/* Names */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: cardState !== 'closed' ? 1 : 0, y: cardState !== 'closed' ? 0 : 15 }}
-                transition={{ delay: 0.8, duration: 0.6, ease: 'easeOut' }}
-                className="text-center mb-5"
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: cardState !== 'closed' ? 1 : 0 }}
+                transition={{ delay: 0.6, duration: 0.7, ease: 'easeOut' }}
+                className="text-center mb-4"
+                style={{ fontFamily: "'Cormorant Garamond', serif", color: 'rgba(255,255,255,0.45)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase' }}
               >
-                <h1 className="font-script text-[2.8rem] gold-text leading-none">{data.groom.name}</h1>
-                <p className="text-gold/40 font-serif text-xs italic my-2.5">&amp;</p>
-                <h1 className="font-script text-[2.8rem] gold-text leading-none">{data.bride.name}</h1>
+                Request the honour of your presence
+              </motion.p>
+
+              {/* Names — large, elegant */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: cardState !== 'closed' ? 1 : 0, y: cardState !== 'closed' ? 0 : 12 }}
+                transition={{ delay: 0.7, duration: 0.7, ease: 'easeOut' }}
+                className="text-center mb-4"
+              >
+                <h1 className="gold-text leading-none mb-1" style={{ fontFamily: "'Great Vibes', cursive", fontSize: '2.6rem' }}>
+                  {data.groom.name}
+                </h1>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", color: 'rgba(212,175,55,0.5)', fontSize: '16px', letterSpacing: '0.15em' }} className="my-1.5">✦</p>
+                <h1 className="gold-text leading-none" style={{ fontFamily: "'Great Vibes', cursive", fontSize: '2.6rem' }}>
+                  {data.bride.name}
+                </h1>
               </motion.div>
 
               {/* Bottom shimmer */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 0.9, duration: 0.5, ease: 'easeOut' }}
-                className="gold-shimmer-line w-14 mb-4"
+                transition={{ delay: 0.85, duration: 0.5, ease: 'easeOut' }}
+                className="gold-shimmer-line w-16 mb-3"
               />
 
-              {/* Date */}
-              <motion.p
+              {/* Date & Venue */}
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: cardState !== 'closed' ? 1 : 0 }}
-                transition={{ delay: 1, duration: 0.6, ease: 'easeOut' }}
-                className="font-serif text-white/40 text-[10px] tracking-[0.25em] uppercase"
+                transition={{ delay: 0.9, duration: 0.7, ease: 'easeOut' }}
+                className="text-center"
               >
-                {data.nikah.dateGregorian}
-              </motion.p>
+                <p style={{ fontFamily: "'Playfair Display', serif", color: 'rgba(212,175,55,0.7)', fontSize: '13px', letterSpacing: '0.15em' }}>
+                  {data.nikah.dateGregorian}
+                </p>
+                <p className="mt-1.5" style={{ fontFamily: "'Cormorant Garamond', serif", color: 'rgba(255,255,255,0.35)', fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase' }}>
+                  Nikah Ceremony
+                </p>
+              </motion.div>
             </div>
           </div>
 
