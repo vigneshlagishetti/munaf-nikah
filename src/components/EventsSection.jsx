@@ -40,7 +40,7 @@ export default function EventsSection({ data }) {
                 <div>
                   <MapPin size={16} className="text-gold/50 mx-auto mb-2" />
                   <p className="text-white font-medium">{data.nikah.venueName}</p>
-                  <p className="text-white/80 text-xs mt-1 leading-relaxed max-w-xs mx-auto">{data.nikah.venueAddress}</p>
+                  <p className="text-white/80 text-xs mt-1 leading-relaxed max-w-xs mx-auto text-center">{data.nikah.venueAddress}</p>
                 </div>
               </div>
 
@@ -98,7 +98,7 @@ export default function EventsSection({ data }) {
                 <div>
                   <MapPin size={16} className="text-gold/50 mx-auto mb-2" />
                   <p className="text-white font-medium">{data.walima.venueName}</p>
-                  <p className="text-white/80 text-xs mt-1 leading-relaxed max-w-xs mx-auto">{data.walima.venueAddress}</p>
+                  <p className="text-white/80 text-xs mt-1 leading-relaxed max-w-xs mx-auto text-center">{data.walima.venueAddress}</p>
                 </div>
               </div>
 
