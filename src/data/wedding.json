@@ -15,18 +15,18 @@
   },
   "nikah": {
     "dateGregorian": "Sunday, June 7, 2026",
-    "dateHijri": "22 Dhu al-Hijjah",
+    "dateHijri": "21 Dhu al-Hijjah 1447 AH",
     "time": "12:30 PM",
     "venueName": "Railway Institute",
     "venueAddress": "Prabhath Nagar, V.V Nagar, Guntakal, Andhra Pradesh 515801",
     "lat": 15.1711,
     "lng": 77.3778,
     "note": "The sacred marriage contract ceremony. Please arrive 15 minutes early.",
-    "prayerNote": "Nikah is scheduled between Asr and Maghrib prayers."
+    "prayerNote": "Nikah is scheduled after Dhuhr prayers."
   },
   "walima": {
     "dateGregorian": "Monday, June 8, 2026",
-    "dateHijri": "22 Dhu al-Hijjah",
+    "dateHijri": "22 Dhu al-Hijjah 1447 AH",
     "time": "1:00 PM",
     "venueName": "Railway Institute",
     "venueAddress": "Prabhath Nagar, V.V Nagar, Guntakal, Andhra Pradesh 515801",
